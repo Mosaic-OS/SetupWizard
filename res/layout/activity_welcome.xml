@@ -65,14 +65,14 @@
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:contentDescription="@string/grapheneos_icon"
-                android:src="@drawable/grapheneos_icon" />
+                android:contentDescription="@string/mosaicos_icon"
+                android:src="@drawable/mosaicos_icon" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineHeight="45dp"
-                android:text="@string/welcome_to_grapheneos"
+                android:text="@string/welcome_to_mosaicos"
                 android:textAppearance="@style/TextAppearance.Material3.DisplayMedium"
                 android:textColor="?android:attr/textColorPrimary" />
 
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/grapheneos_desc"
+                android:text="@string/mosaicos_desc"
                 android:textAppearance="@style/TextAppearance.SudMaterialYouItemSummary" />
 
             <TextView

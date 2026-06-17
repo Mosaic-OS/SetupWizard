@@ -1,0 +1,119 @@
+package app.mosaicos.setupwizard.action
+
+import android.app.Activity
+import android.app.ActivityOptions
+import android.app.StatusBarManager
+import android.content.Intent
+import android.os.UserManager
+import androidx.annotation.StyleRes
+import com.google.android.setupcompat.partnerconfig.PartnerConfigHelper
+import com.google.android.setupcompat.util.WizardManagerHelper
+import com.google.android.setupdesign.R
+import com.google.android.setupdesign.util.ThemeHelper
+import app.mosaicos.setupwizard.appContext
+import app.mosaicos.setupwizard.view.activity.DateTimeActivity
+import app.mosaicos.setupwizard.view.activity.FinishActivity
+import app.mosaicos.setupwizard.view.activity.GesturesActivity
+import app.mosaicos.setupwizard.view.activity.LocationActivity
+import app.mosaicos.setupwizard.view.activity.MigrationActivity
+import app.mosaicos.setupwizard.view.activity.SecurityActivity
+import app.mosaicos.setupwizard.view.activity.SetupWizardActivity
+import app.mosaicos.setupwizard.view.activity.WelcomeActivity
+import app.mosaicos.setupwizard.view.activity.WifiActivity
+import app.mosaicos.setupwizard.view.activity.OptionalAppsActivity
+import app.mosaicos.setupwizard.view.activity.BetaWarningActivity
+
+object SetupWizard {
+
+    // it is assumed that activities are unrelated from each other
+    // which means current activity has no info to pass to next activity
+    // which means the launching of next activity will be a pure function
+    private val primaryUserActivities = listOf<Class<out Activity>>(
+        WelcomeActivity::class.java,
+        BetaWarningActivity::class.java,
+        WifiActivity::class.java,
+        DateTimeActivity::class.java,
+        LocationActivity::class.java,
+        SecurityActivity::class.java,
+        MigrationActivity::class.java,
+		OptionalAppsActivity::class.java,
+        GesturesActivity::class.java,
+        FinishActivity::class.java
+    )
+    private val secondaryUserActivities = listOf<Class<out Activity>>(
+        WelcomeActivity::class.java,
+        LocationActivity::class.java,
+        SecurityActivity::class.java,
+        MigrationActivity::class.java,
+        FinishActivity::class.java
+    )
+
+    // launch next step
+    fun next(current: Activity) {
+        next(current, current.javaClass)
+    }
+
+    // launch next step for the explicitly provided current step
+    fun next(activity: Activity, currentStep: Class<out Activity>) {
+        val activities = if (isPrimaryUser) primaryUserActivities else secondaryUserActivities
+        val index = activities.indexOf(currentStep)
+        if (index == -1) throw IllegalArgumentException("unknown current step")
+        if (index + 1 == activities.size) throw IllegalArgumentException("no more steps")
+        startActivity(activity, activities[index + 1])
+    }
+
+    fun startActivity(activityContext: Activity, activityClass: Class<out Activity>) {
+        val options = ActivityOptions.makeCustomAnimation(
+            activityContext,
+            R.anim.sud_slide_next_in,
+            R.anim.sud_slide_next_out
+        ).toBundle()
+        activityContext.startActivity(Intent(activityContext, activityClass), options)
+    }
+
+    //////////////////////////////// common actions /////////////////////////
+
+    private val statusBarManager = appContext.getSystemService(StatusBarManager::class.java)!!
+
+    fun setStatusBarHidden(hidden: Boolean) {
+        statusBarManager.setDisabledForSetup(hidden)
+    }
+
+    fun startActivity(context: Activity, intent: Intent) {
+        prepareIntent(intent)
+        context.startActivity(intent)
+    }
+
+    fun startActivityForResult(context: SetupWizardActivity, intent: Intent) {
+        prepareIntent(intent)
+        context.startActivityForResult(intent)
+    }
+
+    /**
+     * Commons stuffs for launching an activity.
+     */
+    private fun prepareIntent(intent: Intent) {
+        intent.putExtra(WizardManagerHelper.EXTRA_IS_FIRST_RUN, true) // not needed on >= Q
+        intent.putExtra(WizardManagerHelper.EXTRA_IS_SETUP_FLOW, true)
+        intent.putExtra(WizardManagerHelper.EXTRA_THEME, getDefaultThemeName())
+    }
+
+    @StyleRes
+    fun getDefaultTheme(): Int {
+        return ThemeHelper.getSuwDefaultTheme(appContext)
+    }
+
+    private fun getDefaultThemeName(): String? {
+        return PartnerConfigHelper.getSuwDefaultThemeString(appContext)
+    }
+
+    // primary user here means the first user of the device, the user that is implicitly created
+    // on first boot.
+    // any other subsequent users are secondary users
+    val isPrimaryUser: Boolean by lazy {
+        appContext.getSystemService(UserManager::class.java)!!.isSystemUser
+    }
+    val isSecondaryUser: Boolean by lazy {
+        !isPrimaryUser
+    }
+}

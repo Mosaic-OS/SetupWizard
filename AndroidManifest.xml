@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="app.grapheneos.setupwizard"
+    package="app.mosaicos.setupwizard"
     tools:ignore="ProtectedPermissions">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.MANAGE_USER_OEM_UNLOCK_STATE" />
-    <uses-permission android:name="android.permission.NETWORK_SETUP_WIZARD" />
+	<uses-permission android:name="android.permission.NETWORK_SETUP_WIZARD" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_OEM_UNLOCK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.SET_TIME" />
     <uses-permission android:name="android.permission.SET_TIME_ZONE" />
@@ -17,8 +19,6 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="com.stevesoltys.seedvault.RESTORE_BACKUP" />
-    <uses-permission android:name="app.seamlessupdate.client.OPEN_SECURITY_PREVIEW_SETTINGS" />
-
 
     <application
         android:name=".App"
@@ -28,7 +28,7 @@
         tools:ignore="MissingApplicationIcon">
 
         <activity
-            android:name="app.grapheneos.setupwizard.view.activity.WelcomeActivity"
+            android:name="app.mosaicos.setupwizard.view.activity.WelcomeActivity"
             android:exported="true">
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.MAIN" />
@@ -38,15 +38,24 @@
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.OemUnlockActivity" />
-        <activity android:name=".view.activity.DateTimeActivity" />
-        <activity android:name=".view.activity.UpdaterSecurityPreviewActivity" />
-        <activity android:name=".view.activity.WifiActivity" />
-        <activity android:name=".view.activity.LocationActivity" />
-        <activity android:name=".view.activity.SecurityActivity" />
-        <activity android:name=".view.activity.MigrationActivity" />
-        <activity android:name=".view.activity.GesturesActivity" />
-        <activity android:name=".view.activity.FinishActivity" />
+            <activity android:name=".view.activity.OemUnlockActivity" />
+            <activity android:name=".view.activity.DateTimeActivity" />
+            <activity android:name=".view.activity.BetaWarningActivity" />
+            <activity android:name=".view.activity.WifiActivity" />
+            <activity android:name=".view.activity.LocationActivity" />
+            <activity android:name=".view.activity.SecurityActivity" />
+            <activity android:name=".view.activity.MigrationActivity" />
+            <activity android:name=".view.activity.GesturesActivity" />
+            <activity android:name=".view.activity.OptionalAppsActivity" />
+            <activity android:name=".view.activity.FinishActivity" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+      </provider>
     </application>
-
 </manifest>

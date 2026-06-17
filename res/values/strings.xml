@@ -2,9 +2,9 @@
     <string name="app_name">SetupWizard</string>
     <string name="next">Next</string>
     <string name="skip">Skip</string>
-    <string name="welcome_to_grapheneos">Welcome to GrapheneOS</string>
-    <string name="grapheneos_icon">GrapheneOS icon</string>
-    <string name="grapheneos_desc">Privacy and security, crafted for your mobile device, usable by everyone.</string>
+    <string name="welcome_to_mosaicos">Welcome to MosaicOS</string>
+    <string name="mosaicos_icon">MosaicOS icon</string>
+    <string name="mosaicos_desc">Based on GrapheneOS privacy and security, with some extras.</string>
     <string name="lets_setup_your_device">Let\'s set up your device in a few steps.</string>
     <string name="lets_setup_your_profile">Let\'s set up your user profile in a few steps.</string>
     <string name="english_united_states">English (United States)</string>
@@ -15,16 +15,16 @@
     <string name="connect">Connect</string>
     <string name="choose_your_language">Choose your language</string>
     <string name="location_services">Location services</string>
-    <string name="location_access_title">Use location</string>
+	<string name="location_access_title">Use location</string>
     <string name="location_access_desc">Allow apps that have asked your permission to use your location information. This may include your current location and past locations.</string>
-    <string name="network_location_enabled_title">Network location</string>
+	<string name="network_location_enabled_title">Network location</string>
     <string name="network_location_enabled_desc">Enable network location to determine your location better (such as when indoors) and more efficiently. Nearby wireless signal identifiers will be sent to an Apple server through a GrapheneOS proxy only when network location is being used.</string>
     <string name="wifi_scanning_always_available_enabled_title">Wi-Fi scanning always available</string>
     <string name="wifi_scanning_always_available_enabled_desc">Allow apps and services with permission to scan for Wi-Fi networks to do so even when Wi-Fi is off. For example, when network location is on, this allows it to scan for Wi-Fi networks even when Wi-Fi is off, improving location accuracy.</string>
-    <string name="geocoder_enabled_title">Geocoder</string>
+	<string name="geocoder_enabled_title">Geocoder</string>
     <string name="geocoder_enabled_desc">Enable geocoder to allow apps to use a network-based service hosted by GrapheneOS to convert between geographic coordinates and human-readable addresses. Some apps need this for critical functionality.</string>
     <string name="restore_apps_and_data"><![CDATA[Restore apps & data]]></string>
-    <string name="data_restore_desc">If you have a backup from your previous GrapheneOS device, you can restore it here.</string>
+    <string name="data_restore_desc">If you have a backup from your previous MosaicOS device, you can restore it here.</string>
     <string name="you_re_all_set_now">You\'re all set now!</string>
     <string name="device_setup_done_desc">You\'re ready to start using your device</string>
     <string name="profile_setup_done_desc">You\'re ready to start using your user profile</string>
@@ -47,7 +47,7 @@
     <string name="try_it">Try it</string>
     <string name="oem_unlocked_warning">The bootloader is unlocked and software integrity can not be guaranteed. Any data stored on this device may be available to attackers. Do not store any sensitive data on this device.</string>
     <string name="visit_this_link_on_another_device">Visit this link on another device:</string>
-    <string name="oem_lock_url" translatable="false">grapheneos.org/UBL</string>
+    <string name="oem_lock_url" translatable="false">mosaicos.io/faq</string>
     <string name="lock_your_bootloader">Lock your bootloader</string>
     <string name="oem_unlock_fullscreen_desc">
         The bootloader is unlocked and software integrity
@@ -62,5 +62,23 @@
     <string name="continue_without_locking_timer">Continue without locking (%d)</string>
     <string name="oem_unlock_ack_risks">I understand the security risks of not locking my bootloader.</string>
     <string name="disable_oem_unlocking">Disable OEM unlocking</string>
-    <string name="disable_oem_unlocking_desc">It\'s recommended to disable OEM unlocking to improve device security</string>
+    <string name="disable_oem_unlocking_desc">Although disabling OEM unlocking improves the security of your device, it is not recommended because it will make your device unrecoverable in the event of a software failure. Only disable it if absolutely necessary.</string>
+    <string name="optional_apps_title">Additional apps</string>
+    <string name="optional_apps_desc">
+      Install recommended applications that may improve your user experience, or just skip this section.\n\n
+      If you change your mind, you can uninstall these apps at any time, or install them later from the Mosaic Store.
+    </string>
+    <string name="install_optional_apps">Install</string>
+    <string name="heli_board_description">Open source, privacy friendly and customizable keyboard.</string>
+    <string name="etar_description">Open source calendar app from LineageOS.</string>
+    <string name="beta_warning_title">Beta version</string>
+    <string name="beta_warning_desc">
+        This release of MosaicOS is in beta. This means that while initial, simple testing
+        has not revealed any issues, extensive testing has not been conducted. Bugs, crashes,
+        and unexpected behavior may occur.\n\nThis is intended for those who want to stay
+        up to date and participate in testing new features. It is by no means 100% stable.
+        \n\nPlease keep this in mind and use the system accordingly.
+    </string>
+    <string name="beta_warning_continue_timer">I understand, continue (%d)</string>
+    <string name="beta_warning_continue">I understand, continue</string>
 </resources>
