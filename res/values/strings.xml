@@ -23,6 +23,9 @@
     <string name="wifi_scanning_always_available_enabled_desc">Allow apps and services with permission to scan for Wi-Fi networks to do so even when Wi-Fi is off. For example, when network location is on, this allows it to scan for Wi-Fi networks even when Wi-Fi is off, improving location accuracy.</string>
 	<string name="geocoder_enabled_title">Geocoder</string>
     <string name="geocoder_enabled_desc">Enable geocoder to allow apps to use a network-based service hosted by GrapheneOS to convert between geographic coordinates and human-readable addresses. Some apps need this for critical functionality.</string>
+    <string name="security_features">Security features</string>
+    <string name="secure_dns_enabled_title">Secure DNS</string>
+    <string name="secure_dns_enabled_desc">Encrypts your device\'s domain name lookups with DNS-over-TLS and blocks ads and trackers. Networks and your ISP cannot see or tamper with the sites you visit, but they can still see the IP addresses you connect to.</string>
     <string name="restore_apps_and_data"><![CDATA[Restore apps & data]]></string>
     <string name="data_restore_desc">If you have a backup from your previous MosaicOS device, you can restore it here.</string>
     <string name="you_re_all_set_now">You\'re all set now!</string>

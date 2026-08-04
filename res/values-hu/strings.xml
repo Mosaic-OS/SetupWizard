@@ -20,6 +20,9 @@
     <string name="wifi_scanning_always_available_enabled_desc">Engedélyezze az alkalmazásoknak és szolgáltatásoknak, hogy Wi-Fi hálózatokat keressenek, még akkor is, ha a Wi-Fi ki van kapcsolva. Például, ha a hálózati helymeghatározás be van kapcsolva, ez lehetővé teszi a Wi-Fi hálózatok keresését akkor is, ha a Wi-Fi ki van kapcsolva, javítva ezzel a helymeghatározás pontosságát.</string>
 	<string name="geocoder_enabled_title">Geokódoló</string>
     <string name="geocoder_enabled_desc">Engedélyezze a geokódolót, hogy az alkalmazások a GrapheneOS által üzemeltetett hálózati szolgáltatást használhassák a földrajzi koordináták és az ember számára olvasható címek közötti átváltáshoz. Egyes alkalmazásoknak ez elengedhetetlen a megfelelő működéshez.</string>
+    <string name="security_features">Biztonsági funkciók</string>
+    <string name="secure_dns_enabled_title">Biztonságos DNS</string>
+    <string name="secure_dns_enabled_desc">Titkosítja az eszköz névfeloldási kéréseit DNS-over-TLS használatával, valamint blokkolja a hirdetéseket és a követőket. A hálózatok és az internetszolgáltató nem láthatják és nem módosíthatják a meglátogatott oldalakat, de az IP-címeket továbbra is látják.</string>
     <string name="restore_apps_and_data"><![CDATA[Alkalmazások és adatok visszaállítása]]></string>
     <string name="data_restore_desc">Ha van biztonsági másolata korábbi MosaicOS-eszközéről, itt visszaállíthatja azt.</string>
     <string name="you_re_all_set_now">Most már minden készen áll!</string>

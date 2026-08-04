@@ -16,6 +16,7 @@ import app.mosaicos.setupwizard.view.activity.FinishActivity
 import app.mosaicos.setupwizard.view.activity.GesturesActivity
 import app.mosaicos.setupwizard.view.activity.LocationActivity
 import app.mosaicos.setupwizard.view.activity.MigrationActivity
+import app.mosaicos.setupwizard.view.activity.SecurityFeaturesActivity
 import app.mosaicos.setupwizard.view.activity.SecurityActivity
 import app.mosaicos.setupwizard.view.activity.SetupWizardActivity
 import app.mosaicos.setupwizard.view.activity.WelcomeActivity
@@ -32,6 +33,7 @@ object SetupWizard {
         WelcomeActivity::class.java,
         BetaWarningActivity::class.java,
         WifiActivity::class.java,
+        SecurityFeaturesActivity::class.java,
         DateTimeActivity::class.java,
         LocationActivity::class.java,
         SecurityActivity::class.java,

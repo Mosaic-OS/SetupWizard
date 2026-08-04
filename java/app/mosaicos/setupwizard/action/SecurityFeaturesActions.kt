@@ -1,0 +1,42 @@
+package app.mosaicos.setupwizard.action
+
+import android.net.ConnectivitySettingsManager
+import android.net.ConnectivitySettingsManager.PRIVATE_DNS_MODE_OPPORTUNISTIC
+import android.net.ConnectivitySettingsManager.PRIVATE_DNS_MODE_PROVIDER_HOSTNAME
+import android.util.Log
+import app.mosaicos.setupwizard.appContext
+import app.mosaicos.setupwizard.data.SecurityFeaturesData
+
+object SecurityFeaturesActions {
+    private const val TAG = "SecurityFeaturesActions"
+    private const val SECURE_DNS_HOSTNAME = "dns1.mosaicos.io"
+
+    init {
+        refreshCurrentState()
+    }
+
+    fun setSecureDnsEnabled(enabled: Boolean) {
+        Log.d(TAG, "setSecureDnsEnabled: $enabled")
+        if (enabled) {
+            // Set the hostname
+            ConnectivitySettingsManager.setPrivateDnsHostname(appContext, SECURE_DNS_HOSTNAME)
+            ConnectivitySettingsManager.setPrivateDnsMode(
+                appContext, PRIVATE_DNS_MODE_PROVIDER_HOSTNAME)
+        } else {
+            // Back to the platform default
+            ConnectivitySettingsManager.setPrivateDnsMode(
+                appContext, PRIVATE_DNS_MODE_OPPORTUNISTIC)
+        }
+        refreshCurrentState()
+    }
+
+    private fun refreshCurrentState() {
+        SecurityFeaturesData.secureDnsEnabled.value =
+            ConnectivitySettingsManager.getPrivateDnsMode(appContext) ==
+                PRIVATE_DNS_MODE_PROVIDER_HOSTNAME
+        Log.d(
+            TAG,
+            "refreshCurrentState: secureDnsEnabled = ${SecurityFeaturesData.secureDnsEnabled.value}"
+        )
+    }
+}
