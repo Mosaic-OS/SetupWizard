@@ -6,6 +6,7 @@ import app.mosaicos.setupwizard.action.SecurityFeaturesActions
 
 object SecurityFeaturesData : ViewModel() {
     val secureDnsEnabled = MutableLiveData<Boolean>()
+    val adbLocked = MutableLiveData<Boolean>()
 
     init {
         SecurityFeaturesActions

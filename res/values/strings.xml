@@ -84,4 +84,12 @@
     </string>
     <string name="beta_warning_continue_timer">I understand, continue (%d)</string>
     <string name="beta_warning_continue">I understand, continue</string>
+    <string name="adb_lock_title">Permanently disable ADB</string>
+    <string name="adb_lock_desc">Blocks USB and wireless debugging on this device for good. Only a factory reset can undo it.</string>
+    <string name="adb_lock_dialog_title">Permanently disable ADB?</string>
+    <string name="adb_lock_dialog_message">USB debugging and wireless debugging will be switched off and locked. The switches in Developer options stay visible but can no longer be turned on.
+
+This cannot be undone by any setting, app or command. The only way to use ADB on this device again is to erase all data with a factory reset.</string>
+    <string name="adb_lock_dialog_confirm">I understand, disable</string>
+    <string name="adb_lock_dialog_cancel">Cancel</string>
 </resources>

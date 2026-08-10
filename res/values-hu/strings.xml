@@ -81,4 +81,12 @@
     <string name="network_location_enabled_title">Hálózati hely</string>
     <string name="network_location_enabled_desc">Engedélyezze a hálózati helymeghatározást, hogy pontosabban (például beltéri helyeken) és hatékonyabban tudja meghatározni a tartózkodási helyét. A közeli vezeték nélküli jelek azonosítóit csak akkor küldjük el az Apple szerverének a GrapheneOS proxy-n keresztül, ha a hálózati helymeghatározás használatban van.</string>
     <string name="wifi_scanning_always_available_enabled_title">Wi-Fi szkennelés mindig elérhető</string>
+    <string name="adb_lock_title">ADB végleges letiltása</string>
+    <string name="adb_lock_desc">Véglegesen letiltja az USB- és a vezeték nélküli hibakeresést ezen a készüléken. Csak gyári visszaállítással vonható vissza.</string>
+    <string name="adb_lock_dialog_title">Véglegesen letiltja az ADB-t?</string>
+    <string name="adb_lock_dialog_message">Az USB-hibakeresés és a vezeték nélküli hibakeresés kikapcsol és zárolásra kerül. A kapcsolók a Fejlesztői beállításokban láthatók maradnak, de többé nem kapcsolhatók be.
+
+Ezt semmilyen beállítás, alkalmazás vagy parancs nem vonhatja vissza. Az ADB csak úgy használható újra ezen a készüléken, ha gyári visszaállítással törli az összes adatot.</string>
+    <string name="adb_lock_dialog_confirm">Megértettem, letiltom</string>
+    <string name="adb_lock_dialog_cancel">Mégse</string>
 </resources>
