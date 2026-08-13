@@ -11,6 +11,7 @@ import com.google.android.setupcompat.util.WizardManagerHelper
 import com.google.android.setupdesign.R
 import com.google.android.setupdesign.util.ThemeHelper
 import app.mosaicos.setupwizard.appContext
+import app.mosaicos.setupwizard.view.activity.CustomizationActivity
 import app.mosaicos.setupwizard.view.activity.DateTimeActivity
 import app.mosaicos.setupwizard.view.activity.FinishActivity
 import app.mosaicos.setupwizard.view.activity.GesturesActivity
@@ -34,6 +35,7 @@ object SetupWizard {
         BetaWarningActivity::class.java,
         WifiActivity::class.java,
         SecurityFeaturesActivity::class.java,
+        CustomizationActivity::class.java,
         DateTimeActivity::class.java,
         LocationActivity::class.java,
         SecurityActivity::class.java,

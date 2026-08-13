@@ -1,9 +1,11 @@
 package app.mosaicos.setupwizard.view.activity
 
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import app.mosaicos.setupwizard.R
+import app.mosaicos.setupwizard.action.CustomizationActions
 import app.mosaicos.setupwizard.action.GesturesActions
 import app.mosaicos.setupwizard.action.SetupWizard
 
@@ -15,6 +17,18 @@ class GesturesActivity : SetupWizardActivity(
 ) {
     companion object {
         private const val TAG = "GesturesActivity"
+    }
+
+    /** Nothing to teach on 3-button navigation, so skip without inflating or joining the stack. */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        if (!CustomizationActions.isGesturalNavigation()) {
+            Log.d(TAG, "Gesture navigation is off, skipping the tutorial")
+            superOnCreateAtBaseClass(savedInstanceState)
+            SetupWizard.next(this)
+            finish()
+            return
+        }
+        super.onCreate(savedInstanceState)
     }
 
     override fun bindViews() {

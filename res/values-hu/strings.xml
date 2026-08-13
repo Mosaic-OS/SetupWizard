@@ -89,4 +89,14 @@
 Ezt semmilyen beállítás, alkalmazás vagy parancs nem vonhatja vissza. Az ADB csak úgy használható újra ezen a készüléken, ha gyári visszaállítással törli az összes adatot.</string>
     <string name="adb_lock_dialog_confirm">Megértettem, letiltom</string>
     <string name="adb_lock_dialog_cancel">Mégse</string>
+    <string name="customization_title">Testreszabás</string>
+    <string name="customization_desc">Válassza ki, hogyan nézzen ki a MosaicOS, és hogyan navigáljon benne. Mindezt később a Beállításokban is módosíthatja.</string>
+    <string name="customization_appearance">Megjelenés</string>
+    <string name="customization_theme_light">Világos</string>
+    <string name="customization_theme_dark">Sötét</string>
+    <string name="customization_theme_black">Fekete</string>
+    <string name="customization_navigation">Navigáció</string>
+    <string name="customization_navigation_gestural">Navigáció kézmozdulatokkal</string>
+    <string name="customization_navigation_buttons">Háromgombos navigáció</string>
+    <string name="customization_navigation_hide_pill">Navigációs kapszula elrejtése</string>
 </resources>

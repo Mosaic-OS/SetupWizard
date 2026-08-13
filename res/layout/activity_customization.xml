@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.setupdesign.GlifLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/glif_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        style="@style/SudContentFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/appearance_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="12dp"
+                android:text="@string/customization_appearance"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                android:textColor="?attr/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/theme_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_theme_light"
+                    style="@style/SudRadioButton"
+                    android:text="@string/customization_theme_light" />
+
+                <RadioButton
+                    android:id="@+id/radio_theme_dark"
+                    style="@style/SudRadioButton"
+                    android:text="@string/customization_theme_dark" />
+
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/black_theme"
+                style="@style/SudCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sud_radio_button_margin_start"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="@dimen/sud_radio_button_padding_start"
+                android:text="@string/customization_theme_black"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/navigation_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="32dp"
+                android:paddingBottom="12dp"
+                android:text="@string/customization_navigation"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                android:textColor="?attr/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/navigation_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_nav_gestural"
+                    style="@style/SudRadioButton"
+                    android:text="@string/customization_navigation_gestural" />
+
+                <RadioButton
+                    android:id="@+id/radio_nav_buttons"
+                    style="@style/SudRadioButton"
+                    android:text="@string/customization_navigation_buttons" />
+
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/hide_navigation_pill"
+                style="@style/SudCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sud_radio_button_margin_start"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:paddingStart="@dimen/sud_radio_button_padding_start"
+                android:text="@string/customization_navigation_hide_pill"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</com.google.android.setupdesign.GlifLayout>

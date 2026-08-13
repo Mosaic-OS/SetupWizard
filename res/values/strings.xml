@@ -92,4 +92,14 @@
 This cannot be undone by any setting, app or command. The only way to use ADB on this device again is to erase all data with a factory reset.</string>
     <string name="adb_lock_dialog_confirm">I understand, disable</string>
     <string name="adb_lock_dialog_cancel">Cancel</string>
+    <string name="customization_title">Customization</string>
+    <string name="customization_desc">Choose how MosaicOS looks and how you navigate. You can change all of this later in Settings.</string>
+    <string name="customization_appearance">Appearance</string>
+    <string name="customization_theme_light">Light</string>
+    <string name="customization_theme_dark">Dark</string>
+    <string name="customization_theme_black">Black</string>
+    <string name="customization_navigation">Navigation</string>
+    <string name="customization_navigation_gestural">Gesture navigation</string>
+    <string name="customization_navigation_buttons">3-button navigation</string>
+    <string name="customization_navigation_hide_pill">Hide the navigation pill</string>
 </resources>

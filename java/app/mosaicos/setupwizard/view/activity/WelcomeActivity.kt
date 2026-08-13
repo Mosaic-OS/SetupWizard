@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.MainThread
 
 import com.google.android.setupcompat.template.FooterButtonStyleUtils
@@ -39,6 +40,10 @@ class WelcomeActivity : SetupWizardActivity(R.layout.activity_welcome) {
         }
         WelcomeActions.handleEntry(this)
         super.onCreate(savedInstanceState)
+        // Nothing precedes this step
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() = Unit
+        })
     }
 
     @MainThread

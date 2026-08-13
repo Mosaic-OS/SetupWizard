@@ -1,7 +1,14 @@
 package app.mosaicos.setupwizard.view.activity
 
 import android.content.Intent
+import android.content.res.Configuration
+import android.database.ContentObserver
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.provider.Settings
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -29,6 +36,23 @@ abstract class SetupWizardActivity(
     @param:StringRes protected val header: Int? = null,
     @param:StringRes protected val description: Int? = null,
 ) : AppCompatActivity() {
+
+    private companion object {
+        const val THEME_AMOLED_BLACK = "theme_amoled_black"
+    }
+
+    private var isResumedPage = false
+
+    private val isBlackTheme: Boolean
+        get() = Settings.Secure.getInt(contentResolver, THEME_AMOLED_BLACK, 0) == 1 &&
+            (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                Configuration.UI_MODE_NIGHT_YES
+
+    private val blackThemeObserver = object : ContentObserver(Handler(Looper.getMainLooper())) {
+        override fun onChange(selfChange: Boolean) {
+            if (isResumedPage && !isFinishing && !isChangingConfigurations) recreate()
+        }
+    }
 
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
@@ -61,7 +85,9 @@ abstract class SetupWizardActivity(
         activityResultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
             onActivityResult(result.resultCode, result.data)
         }
-        setTheme(ThemeHelper.getSuwDefaultTheme(applicationContext))
+        // The in-flow glif theme hardcodes its colours, so only the full dynamic colour theme
+        // routes the window background through the system palette the black overlay rewrites.
+        setTheme(SudR.style.SudFullDynamicColorTheme_DayNight)
         ThemeHelper.trySetDynamicColor(this)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -85,9 +111,17 @@ abstract class SetupWizardActivity(
     private fun initBaseView() {
         val glifLayout = findViewById<GlifLayout>(R.id.glif_layout) ?: return
         footerBarMixin = glifLayout.getMixin(FooterBarMixin::class.java)
+        if (isBlackTheme) applyBlackSurfaces(glifLayout)
         if (icon != null) glifLayout.icon = getDrawable(icon)
         if (header != null) glifLayout.setHeaderText(header)
         if (description != null) glifLayout.setDescriptionText(description)
+    }
+
+    private fun applyBlackSurfaces(glifLayout: GlifLayout) {
+        glifLayout.rootView.setBackgroundColor(Color.BLACK)
+        glifLayout.findViewById<View>(SudR.id.suc_intrinsic_size_layout)
+            ?.setBackgroundColor(Color.BLACK)
+        window.setBackgroundDrawable(ColorDrawable(Color.BLACK))
     }
 
     @MainThread
@@ -95,6 +129,19 @@ abstract class SetupWizardActivity(
 
     @MainThread
     abstract fun setupActions()
+
+    override fun onResume() {
+        super.onResume()
+        isResumedPage = true
+        contentResolver.registerContentObserver(
+            Settings.Secure.getUriFor(THEME_AMOLED_BLACK), false, blackThemeObserver)
+    }
+
+    override fun onPause() {
+        isResumedPage = false
+        contentResolver.unregisterContentObserver(blackThemeObserver)
+        super.onPause()
+    }
 
     protected open fun onActivityResult(resultCode: Int, data: Intent?) {}
 
