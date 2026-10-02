@@ -74,16 +74,6 @@
     <string name="install_optional_apps">Install</string>
     <string name="heli_board_description">Open source, privacy friendly and customizable keyboard.</string>
     <string name="etar_description">Open source calendar app from LineageOS.</string>
-    <string name="beta_warning_title">Beta version</string>
-    <string name="beta_warning_desc">
-        This release of MosaicOS is in beta. This means that while initial, simple testing
-        has not revealed any issues, extensive testing has not been conducted. Bugs, crashes,
-        and unexpected behavior may occur.\n\nThis is intended for those who want to stay
-        up to date and participate in testing new features. It is by no means 100% stable.
-        \n\nPlease keep this in mind and use the system accordingly.
-    </string>
-    <string name="beta_warning_continue_timer">I understand, continue (%d)</string>
-    <string name="beta_warning_continue">I understand, continue</string>
     <string name="adb_lock_title">Permanently disable ADB</string>
     <string name="adb_lock_desc">Blocks USB and wireless debugging on this device for good. Only a factory reset can undo it.</string>
     <string name="adb_lock_dialog_title">Permanently disable ADB?</string>

@@ -69,15 +69,6 @@
     <string name="install_optional_apps">Telepítés</string>
     <string name="heli_board_description">Nyílt forráskódú, adatvédelmet szem előtt tartó testreszabható billentyűzet.</string>
     <string name="etar_description">Nyílt forráskódú naptár a LineageOS-től.</string>
-    <string name="beta_warning_title">Béta verzió</string>
-    <string name="beta_warning_desc">
-        Ez a MosaicOS kiadás béta állapotban van. Ez azt jelenti, hogy bár a kezdeti, egyszerűbb tesztelésen
-        nem jelentkeztek problémák, átfogó tesztelés nem történt. Előfordulhatnak hibák, összeomlások, és nem várt viselkedések.
-        \n\nEzt azoknak szántuk, akik szeretnének naprakészek lenni és részt venni az új
-        funckiók tesztelésében. Semmiképpen nem tekinthető 100% stabilnak.\n\nTartsa ezt észben, és eszerint használja a rendszert.
-    </string>
-    <string name="beta_warning_continue_timer">Megértettem, tovább (%d)</string>
-    <string name="beta_warning_continue">Megértettem, tovább</string>
     <string name="network_location_enabled_title">Hálózati hely</string>
     <string name="network_location_enabled_desc">Engedélyezze a hálózati helymeghatározást, hogy pontosabban (például beltéri helyeken) és hatékonyabban tudja meghatározni a tartózkodási helyét. A közeli vezeték nélküli jelek azonosítóit csak akkor küldjük el az Apple szerverének a GrapheneOS proxy-n keresztül, ha a hálózati helymeghatározás használatban van.</string>
     <string name="wifi_scanning_always_available_enabled_title">Wi-Fi szkennelés mindig elérhető</string>

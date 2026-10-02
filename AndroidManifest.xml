@@ -47,7 +47,6 @@
         </activity>
             <activity android:name=".view.activity.OemUnlockActivity" />
             <activity android:name=".view.activity.DateTimeActivity" />
-            <activity android:name=".view.activity.BetaWarningActivity" />
             <activity android:name=".view.activity.WifiActivity" />
             <activity android:name=".view.activity.SecurityFeaturesActivity" />
             <activity android:name=".view.activity.CustomizationActivity" />

@@ -23,7 +23,6 @@ import app.mosaicos.setupwizard.view.activity.SetupWizardActivity
 import app.mosaicos.setupwizard.view.activity.WelcomeActivity
 import app.mosaicos.setupwizard.view.activity.WifiActivity
 import app.mosaicos.setupwizard.view.activity.OptionalAppsActivity
-import app.mosaicos.setupwizard.view.activity.BetaWarningActivity
 
 object SetupWizard {
 
@@ -32,7 +31,6 @@ object SetupWizard {
     // which means the launching of next activity will be a pure function
     private val primaryUserActivities = listOf<Class<out Activity>>(
         WelcomeActivity::class.java,
-        BetaWarningActivity::class.java,
         WifiActivity::class.java,
         SecurityFeaturesActivity::class.java,
         CustomizationActivity::class.java,
